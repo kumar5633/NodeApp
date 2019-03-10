@@ -10,7 +10,7 @@ node {
     stage('Build image') {
         /* This builds the actual image */
         echo "Building the image now......"
-        app = /usr/local/bin/docker.build("ramon01/nodeapp")
+        app = '/usr/local/bin/docker.build("ramon01/nodeapp")'
         echo "New Image Creation is complete......"
     }
 
