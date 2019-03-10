@@ -16,7 +16,7 @@ node {
 
     stage('Test image') {
         
-        app.inside {
+        'app./usr/local/bin/inside' {
             echo "Tests passed"
         }
     }
@@ -25,9 +25,9 @@ node {
         /* 
 			You would need to first register with DockerHub before you can push images to your account
 		*/
-        docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
-            app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
+       '/usr/local/bin/docker.withRegistry('https://registry.hub.docker.com', 'docker-hub')' {
+            app.'/usr/local/bin/push("${env.BUILD_NUMBER}")'
+            app.'/usr/local/bin/push("latest")'
             } 
                 echo "Trying to Push Docker Build to DockerHub"
     }
