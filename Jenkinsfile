@@ -10,13 +10,13 @@ node {
     stage('Build image') {
         /* This builds the actual image */
         echo "Building the image now......"
-        app = '/usr/local/bin/docker.build("ramon01/nodeapp")'
+        app = /usr/local/bin/docker.build("ramon01/nodeapp")
         echo "New Image Creation is complete......"
     }
 
     stage('Test image') {
         
-        'app./usr/local/bin/inside' {
+        app./usr/local/bin/inside {
             echo "Tests passed"
         }
     }
@@ -25,9 +25,9 @@ node {
         /* 
 			You would need to first register with DockerHub before you can push images to your account
 		*/
-       '/usr/local/bin/docker.withRegistry('https://registry.hub.docker.com', 'docker-hub')' {
-            app.'/usr/local/bin/push("${env.BUILD_NUMBER}")'
-            app.'/usr/local/bin/push("latest")'
+            docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
+            app.push("${env.BUILD_NUMBER}")
+            app.push("latest")
             } 
                 echo "Trying to Push Docker Build to DockerHub"
     }
